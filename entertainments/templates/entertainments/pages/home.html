@@ -1,25 +1,17 @@
-{% include 'entertainments/partials/head.html' %}
+{% extends 'global/base.html' %}
 
-<body>
-
-    {% include 'entertainments/partials/header.html' %}
-
-    {% include 'entertainments/partials/search.html' %}
-    <main class="main-content-container">
-        <div class="main-content main-content-list content-container">
+{% block content %}
+<div class="main-content main-content-list content-container">
 
 
-            {% include 'entertainments/partials/post.html' %}
-            {% include 'entertainments/partials/post.html' %}
-            {% include 'entertainments/partials/post.html' %}
-            {% include 'entertainments/partials/post.html' %}
+    {% include 'entertainments/partials/post.html' %}
+    {% include 'entertainments/partials/post.html' %}
+    {% include 'entertainments/partials/post.html' %}
+    {% include 'entertainments/partials/post.html' %}
 
-        </div>
-    </main>
-
-
-{% include 'entertainments/partials/footer.html' %}
-
+</div>
+{% endblock content %}
+    
 
 
 
