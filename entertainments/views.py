@@ -8,3 +8,7 @@ def home(request):
     return render(request, 'entertainments/pages/home.html', context={
         'name': 'Kleber Lucas',
     })
+
+
+def post(request, id):
+    return render(request, 'entertainments/pages/post-view.html')

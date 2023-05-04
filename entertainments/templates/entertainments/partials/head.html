@@ -1,11 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+  
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Entertainments</title>
+    <meta charset="utf-8">
+    <title>Home - EVT System</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+    <link href="{% static 'entertainments/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'entertainments/css/bootstrap-responsive.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <link href="{% static 'entertainments/css/font-awesome.css' %}" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+    <link href="{% static 'entertainments/css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'entertainments/css/pages/signin.css' %}" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
         integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,19 +28,4 @@
         integrity="sha512-yDUXOUWwbHH4ggxueDnC5vJv4tmfySpVdIcN1LksGZi8W8EVZv4uKGrQc0pVf66zS7LDhFJM7Zdeow1sw1/8Jw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: 62.5%;
-        }
-
-        body {
-            font-size: 1.6rem;
-        }
-    </style>
 </head>

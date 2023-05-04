@@ -1,16 +1,25 @@
 {% include 'entertainments/partials/head.html' %}
 
 <body>
-    <header class="container-header-principal">
-        <div class="header-principal container">
-            <h1>
-                <a href="/">
-                    <i class="fa-regular fa-tv"></i>
-                    <span>Entertainments {{ name }}</span>
-                </a>
-            </h1>
-        </div>
-    </header>
-</body>
 
-</html>
+    {% include 'entertainments/partials/header.html' %}
+
+    {% include 'entertainments/partials/search.html' %}
+    <main class="main-content-container">
+        <div class="main-content main-content-list content-container">
+
+
+            {% include 'entertainments/partials/post.html' %}
+            {% include 'entertainments/partials/post.html' %}
+            {% include 'entertainments/partials/post.html' %}
+            {% include 'entertainments/partials/post.html' %}
+
+        </div>
+    </main>
+
+
+{% include 'entertainments/partials/footer.html' %}
+
+
+
+
