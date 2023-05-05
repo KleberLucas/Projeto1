@@ -1,4 +1,11 @@
-{% include 'entertainments/partials/head.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  
+<head>
+    {% include 'entertainments/partials/head.html' %}
+
+    <title>{% block title %}{% endblock title %} EVT System</title>
+</head>
 
 <body>
 
@@ -10,7 +17,7 @@
     </main>
 
 
-{% include 'entertainments/partials/footer.html' %}
+    {% include 'entertainments/partials/footer.html' %}
 
 
 
