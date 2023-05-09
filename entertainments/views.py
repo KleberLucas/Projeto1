@@ -14,4 +14,5 @@ def home(request):
 def post(request, id):
     return render(request, 'entertainments/pages/post-view.html', context={
         'post': make_post,
+        'is_detail_page': True,
     })
