@@ -14,6 +14,7 @@ fake = Faker('pt_BR')
 
 def make_post():
     return {
+        'id': fake.random_number(digits=2, fix_len=True),
         'title': fake.sentence(nb_words=6),
         'description': fake.sentence(nb_words=12),
         'note': fake.random_number(digits=2, fix_len=True),

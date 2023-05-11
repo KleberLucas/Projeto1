@@ -1,9 +1,15 @@
 <div class="entertainment entertainment-list-item">
     <div class="entertainment-cover">
-        <img src="{{ post.cover.url}}" alt="Temporário">
+        <a href="{% url 'entertainments-post' post.id %}">
+            <img src="{{ post.cover.url}}" alt="Temporário">
+        </a>
     </div>
     <div class="entertainment-title-container">
-        <h2 class="entertainment-title">{{ post.title }}</h2>
+        <h2 class="entertainment-title">
+            <a href="{% url 'entertainments-post' post.id %}">
+                {{ post.title }}
+            </a>
+        </h2>
     </div>
 
     <div class="entertainment-author">
@@ -41,7 +47,7 @@
     </div>
     {% if is_detail_page is not True %}
     <footer class="entertainment-footer">
-        <a class="entertainment-read-more button button-dark button-full-width" href="posts/123">
+        <a class="entertainment-read-more button button-dark button-full-width" href="{% url 'entertainments-post' post.id %}">
             <i class="fas fa-eye"></i>
             <span>ver mais...</span>
         </a>
