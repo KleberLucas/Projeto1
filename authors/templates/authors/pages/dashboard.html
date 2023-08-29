@@ -1,0 +1,44 @@
+{% extends 'global/base.html' %}
+
+
+{% block title %}Dashboard ({{user}}) |{% endblock title %}
+
+{% block content %}
+
+
+<div class="main-content center container">
+    <h2>Dashboard ({{user}})</h2>
+    {% include 'authors/partials/login_message.html' %}
+    <div class="authors-dathboard-container">
+        <h3>Suas postagens</h3>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <a href="{% url 'authors-dashboard-post-edit' post.id %}">{{post.title}}</a>
+                    <form action="{% url 'authors-dashboard-post-delete' %}" class="inline-form form-delete" method="POST">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="id" value="{{ post.id }}">
+
+                        <button class="plaintext-button" type="submit">❌</button>
+                    </form>
+                </li>
+            
+            {% comment %} Se o for vier vazio (Aquele usuário não tem nenhuma postagem)
+                            usamos o comando Empty {% endcomment %}
+            {% empty %}
+
+            <li>
+                <p>Você não possui nenhuma postagem, por favor, crie uma.</p>
+            </li>
+            
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+{% include 'entertainments/partials/messages.html' %}
+
+
+{% endblock content %}

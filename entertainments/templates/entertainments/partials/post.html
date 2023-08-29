@@ -15,18 +15,24 @@
     <div class="entertainment-author">
         <span class="entertainment-author-item">
             <i class="fas fa-user"></i>
-            {{ post.first_name }}  {{ post.last_name }}
+            {% if post.author.first_name %}
+                {{ post.author.first_name }}  {{ post.author.last_name }}
+            {% else%}
+                {{post.author.username}}
+            {% endif %}
         </span>
         <span class="entertainment-author-item">
             <i class="fas fa-calendar-alt"></i>
             {{ post.created_at|date:"d/m/Y"}} às {{ post.created_at|date:"H:i:s"}}
         </span>
+        {% if post.category is not None %}
         <span class="entertainment-author-item">
-            <a href="">
+            <a href="{% url 'entertainments-category' post.category.id %}">
                 <i class="fas fa-layer-group"></i>
                 <span>{{ post.category.name }}</span>
             </a>
         </span>
+        {% endif %}
     </div>
     <div class="entertainment-content">
         <p>{{ post.description }}</p>
@@ -56,8 +62,37 @@
     
     {% if is_detail_page is True %}
     <div class="review">
+        {% if post.review_is_html is True %}
+            {{ post.review|safe }}
+        {% else %}
             {{ post.review|linebreaksbr }}
-        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if is_detail_page is True %}
+        <ul>
+            {% for liker in likers %}
+                <li>{{liker.liker.first_name}} {{liker.liker.last_name}}</li>
+
+            {% empty %}
+                <div class="center">
+                    <h1>Ainda não há curtidas 😥</h1>
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if is_detail_page is True and request.user.is_authenticated is True and request.user != post.author and this_user_is_liker is not True %}
+    <form action="{% url 'authors-dashboard-post-like' %}" class="inline-form form-delete" method="POST">
+        {% csrf_token %}
+
+        <input type="hidden" name="post_id" value="{{ post.id }}">
+        <input type="hidden" name="liker_id" value="{{ request.user.id }}">
+
+        <button class="plaintext-button" type="submit">Curtir 👍</button>
+    </form>
+        
     {% endif %}
     
 </div>

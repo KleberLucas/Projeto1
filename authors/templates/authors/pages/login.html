@@ -1,0 +1,32 @@
+{% extends 'global/base.html' %}
+
+
+{% block title %}Login |{% endblock title %}
+
+{% block content %}
+
+{% include 'entertainments/partials/messages.html' %}
+
+<div class="main-content center container">
+    <h2>Login</h2>
+    {% include 'authors/partials/login_message.html' %}
+</div>
+
+<div class="main-content container">
+    <form action="{% url 'authors-login-create' %}" method="POST">
+        {% csrf_token %}
+        {% if request.user.is_authenticated is not True %}
+            {% include  'global/partials/form.html' %}
+            
+        <div class="form-content form-content-grid">
+            <div class="form-group">
+                <button type="submit">Send</button>
+            </div>
+        </div>
+        {% endif %}
+        
+
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'global/base.html' %}
+
+
+{% block title %}Dashboard Posts |{% endblock title %}
+
+{% block content %}
+
+
+<div class="main-content center container">
+    <h2>Dashboard Post</h2>
+    {% include 'entertainments/partials/messages.html' %}
+    {% include 'authors/partials/login_message.html' %}
+    <div class="authors-dathboard-container">
+        <form class="main-form" action="{{ form_action }}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include  'global/partials/form.html' %}
+            
+            <div class="form-content form-content-grid">
+                <div class="form-group">
+                    <button type="submit">Send</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+<div class="login-message">
+
+{% if request.user.is_authenticated %}
+        <p>Você já está logado como</p>
+        {{request.user.first_name}}
+        <br>
+        Por favor,
+        <a href="{% url 'authors-dashboard' %}">Veja suas postagens</a>,
+        <a href="{% url 'authors-dashboard-post-new' %}">crie uma nova postagem</a>
+        ou
+        <form class="inline-form" action="{% url 'authors-logout' %}" method='POST'>
+            {% csrf_token %}
+            <input type="hidden" name="username" value="{{ request.user.username }}">
+            <button class="plaintext-button" type="submit">clique aqui</button>
+          </form> para deslogar
+        
+{% endif %}
+
+</div>
