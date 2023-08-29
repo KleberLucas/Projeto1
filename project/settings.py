@@ -132,8 +132,6 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 #Cadastrando novos diretórios de arquivos estáticos
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'), 
-
     os.path.join(BASE_DIR, 'base_static'),
 ]
 
